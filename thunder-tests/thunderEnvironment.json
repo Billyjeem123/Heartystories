@@ -1,0 +1,69 @@
+[
+  {
+    "_id": "ac68e815-aaa5-4e5d-9cba-fa481bd6bc60",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -1,
+    "created": "2022-10-03T21:27:43.266Z",
+    "modified": "2022-10-17T10:45:43.978Z",
+    "data": [
+      {
+        "name": "respectaUrl",
+        "value": "https://respectabackend.fireswitch.com.ng"
+      },
+      {
+        "name": "respectaUrls",
+        "value": "localhost/respecta.io/v0.1/api"
+      },
+      {
+        "name": "taskUrl",
+        "value": "localhost/api.io"
+      },
+      {
+        "name": "solarUrls",
+        "value": "localhost/solar.io/v0.1/api"
+      },
+      {
+        "name": "fulazoUrl",
+        "value": "https://dev.system.fulazo.io/v0.1/api"
+      },
+      {
+        "name": "apptoken",
+        "value": "vjh35vj3hv5jhv56jh5v6jhv56jh3v6j3hv6jhvj3hvuu3yg5uygu3y5guyg5uyuhb5uh"
+      },
+      {
+        "name": "fulazoUrls",
+        "value": "localhost/fulazo.io/v0.1/api"
+      },
+      {
+        "name": "mail",
+        "value": "billyhadiattaofeeq@gmail.com"
+      },
+      {
+        "name": "desc",
+        "value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It ha"
+      },
+      {
+        "name": "fname",
+        "value": "Billyhadiat-Taophiq"
+      },
+      {
+        "name": "address",
+        "value": "Oluyole extension ibadan"
+      },
+      {
+        "name": "mailer",
+        "value": "bbillyhadiattaofeeq@gmail.com"
+      },
+      {
+        "name": "anonUrls",
+        "value": "localhost/heartystories/v0.1/api"
+      },
+      {
+        "name": "anonUrl",
+        "value": "https://bac.heartstories.xyz/v0.1/api"
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "_id": "a6e53e37-682e-473a-90cb-9ef554b9007c",
+    "colName": "fulazo.io",
+    "created": "2022-10-03T21:20:07.970Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "3b9711a8-9fd4-4943-9e2c-b98333d0d08e",
+    "colName": "TasksAPI",
+    "created": "2022-10-03T21:26:51.839Z",
+    "sortNum": 20000,
+    "folders": [],
+    "settings": {
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJ1c2VyaWQiOjUsIm1haWwiOiJiaWxseWhhZGlhdHRhb2ZlZXFAZ21haWwuY29tIn0="
+      }
+    }
+  },
+  {
+    "_id": "d4bc746e-309a-45f3-ac54-9df5abe247e5",
+    "colName": "respecta.io",
+    "created": "2022-10-03T22:10:40.596Z",
+    "sortNum": 30000,
+    "folders": []
+  },
+  {
+    "_id": "d4c62f25-cf49-4c4a-b701-27afb9d57fb9",
+    "colName": "solar.io",
+    "created": "2022-10-03T22:24:24.491Z",
+    "sortNum": 40000,
+    "folders": []
+  },
+  {
+    "_id": "2d642050-59f8-4b9b-a02a-7f90603ea84a",
+    "colName": "anonymous",
+    "created": "2022-10-12T13:27:14.296Z",
+    "sortNum": 50000,
+    "folders": []
+  }
+]
