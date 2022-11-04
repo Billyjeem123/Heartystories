@@ -75,7 +75,7 @@ isn't that great??
 22
 ​
 23
-![front-view](/front-page.png)
+![front-view](/Heartystories.png)
 24
 ​
 25
