@@ -6,7 +6,7 @@
     "global": true,
     "sortNum": -1,
     "created": "2022-10-03T21:27:43.266Z",
-    "modified": "2022-10-17T10:45:43.978Z",
+    "modified": "2022-10-13T10:08:11.815Z",
     "data": [
       {
         "name": "respectaUrl",
@@ -57,12 +57,8 @@
         "value": "bbillyhadiattaofeeq@gmail.com"
       },
       {
-        "name": "anonUrls",
-        "value": "localhost/heartystories/v0.1/api"
-      },
-      {
-        "name": "anonUrl",
-        "value": "https://bac.heartstories.xyz/v0.1/api"
+        "name": "solarUrl",
+        "value": "https://bac.solarcredit.io/v0.1/api"
       }
     ]
   }

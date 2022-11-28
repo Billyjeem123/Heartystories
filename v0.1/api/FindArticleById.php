@@ -11,13 +11,13 @@ if (!empty($_POST['postToken']))
     $posts = new Posts();
 
 
-        $fetchCmt = $posts->fetchPostByToken($_POST['postToken']);
+        $fetchCmt = $posts->FindPostById($_POST['postToken'], $_POST['type']);
         if ($fetchCmt !== false) {
             // code...
             echo $Utility->outputData(true, "Fetch Details", $fetchCmt);
             exit();
         } else {
-            // echo $Utility->outputData(false, 'Unable to process', null);
+            echo $Utility->outputData(false, 'Unable to process', null);
             exit();
         }
 

@@ -254,43 +254,40 @@ class Posts extends db
 
   public function deleleArticle($postToken, $userid, $type)
   {
-    if($type == "Article"){
+    if ($type == "Article") {
 
-    $sql = " DELETE FROM article WHERE  postToken = '$postToken' ";
-    $sql .= " AND userid = '$userid' ";
-    $stmt = $this->connect()->prepare($sql);
-    if (!$stmt->execute()) {
-      $stmt = null;
-      $this->outputData(false,  'Unable to process', null);
-      return false;
-    } else {
-      $this->deleteCmtArticle($postToken);
-      $this->deleteReplyArticle($postToken);
-      $this->outputData(true,  'Deleted', null);
-      return true;
-      exit;
-    }
-
-      }else{
-
-        $sql = " DELETE FROM message WHERE  postToken = '$postToken' ";
-    $sql .= " AND from_id = '$userid' ";
-    $stmt = $this->connect()->prepare($sql);
-    if (!$stmt->execute()) {
-      $stmt = null;
-      $this->outputData(false,  'Unable to process', null);
-      return false;
-    } else {
-      $this->deleteCmtArticle($postToken);
-      $this->deleteReplyArticle($postToken);
-      $this->outputData(true,  'Deleted', null);
-      return true;
-      exit;
-
-        
+      $sql = " DELETE FROM article WHERE  postToken = '$postToken' ";
+      $sql .= " AND userid = '$userid' ";
+      $stmt = $this->connect()->prepare($sql);
+      if (!$stmt->execute()) {
+        $stmt = null;
+        $this->outputData(false,  'Unable to process', null);
+        return false;
+      } else {
+        $this->deleteCmtArticle($postToken);
+        $this->deleteReplyArticle($postToken);
+        $this->outputData(true,  'Deleted', null);
+        return true;
+        exit;
       }
+    } else {
+
+      $sql = " DELETE FROM message WHERE  postToken = '$postToken' ";
+      $sql .= " AND from_id = '$userid' ";
+      $stmt = $this->connect()->prepare($sql);
+      if (!$stmt->execute()) {
+        $stmt = null;
+        $this->outputData(false,  'Unable to process', null);
+        return false;
+      } else {
+        $this->deleteCmtArticle($postToken);
+        $this->deleteReplyArticle($postToken);
+        $this->outputData(true,  'Deleted', null);
+        return true;
+        exit;
+      }
+    }
   }
-}
 
   public function deleteCmtArticle($postToken)
   {
@@ -333,6 +330,47 @@ class Posts extends db
       $this->outputData(true,  'Deleted', null);
       return true;
     }
+  }
+
+  public function FindPostById($postToken, $type)
+  {
+
+    if ($type == "Article") {
+
+      $fetchPostByToken =  $this->fetchPostByToken($postToken);
+      return $fetchPostByToken;
+    } else {
+
+      $fetchMsgByToken = $this->fetchMsgByToken($postToken);
+      return $fetchMsgByToken;
+    }
+  }
+
+  public function fetchMsgByToken($postToken)
+  {
+    global $mysqli;
+    $dataArray = array();
+    $users = new Users();
+
+    $sql  =  " SELECT * FROM message WHERE postToken = '{$postToken}' ";
+    $query  =  mysqli_query($mysqli, $sql);
+    while ($value = mysqli_fetch_assoc($query)) {
+      $username =   $users->FetchIdByName($value['from_id']);
+      $countComment =   $this->countComment($value['postToken']);
+      $array = array(
+        "postToken" => $value['postToken'],
+        'userid' => $value['from_id'],
+        "username" => $username['username'],
+        "article" => $this->validate($value['article']),
+        "likes" => $value['likes'],
+        "type" =>  "Message",
+        "total-comment" =>  $countComment,
+
+      );
+      array_push($dataArray, $array);
+    }
+    return ($dataArray);
+    mysqli_close($mysqli);
   }
 
   public function fetchPostByToken($postToken)
@@ -688,7 +726,24 @@ class Posts extends db
     }
   }
 
-   
+  public function extractUserid($username)
+  {
+    $sql = " SELECT *  FROM tblusers ";
+    $sql .= " WHERE  username = '{$username}'  ";
+    $stmt = $this->connect()
+      ->prepare($sql);
+    if (!$stmt->execute()) {
+      return false;
+    } else {
+      $result_set = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result_set = $result_set[0];
+      $array = [
+        'userid'  => $result_set['id']
+      ];
+
+      return $array;
+    }
+  }
 
   public function likeArticle($userid, $postToken, $type)
   {
@@ -898,10 +953,9 @@ class Posts extends db
       $this->outputData(false,  $_SESSION['err'], null);
       return false;
     } else {
-     
+
       $this->outputData(true,  'updated', null);
-        return true;
-      
+      return true;
     }
   }
 
@@ -917,10 +971,9 @@ class Posts extends db
       $this->outputData(false,  $_SESSION['err'], null);
       return false;
     } else {
-     
+
       $this->outputData(true,  'updated', null);
-        return true;
-      
+      return true;
     }
   }
 
@@ -936,10 +989,9 @@ class Posts extends db
       $this->outputData(false,  $_SESSION['err'], null);
       return false;
     } else {
-     
+
       $this->outputData(true,  'updated', null);
-        return true;
-      
+      return true;
     }
   }
 

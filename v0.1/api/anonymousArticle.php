@@ -9,8 +9,11 @@ if (!empty($_POST['from_id']) and !empty($_POST['to_id']) and $_POST['article'])
 
     $posts = new Posts();
 
-
-    if($posts->createPost2($_POST['from_id'], $_POST['to_id'], $_POST['article'])){exit();}
+      $extractUserid = $posts->extractUserid($_POST['to_id']);
+      
+      $userid = $extractUserid['userid'];
+      
+    if($posts->createPost2($_POST['from_id'], $userid, $_POST['article'])){exit();}
 
 }else{
     
